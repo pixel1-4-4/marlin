@@ -261,6 +261,19 @@ config MSM_SERVICE_LOCATOR
 	  to what process domain exports the service, and which subsystem
 	  that process domain will execute in.
 
+config HTC_RAMDUMP_CODERAM_BACKUP
+	bool "Enable RPM CodeRam backup feature in HTC Ramdump Mechanism"
+	depends on MSM_COMMON_LOG
+	help
+	 RPM CodeRam will be blurred after PBL load XBL SBL1_RPM_ROM section
+	 if using QCT backup design for RPM CodeRam. Enable this CONFIG to backup
+	 RPM CodeRam data with HTC ramdump mechanism.
+
+config HTC_RAMDUMP_CODERAM_BACKUP_ADDR
+	hex "The physical address of RPM CodeRam"
+	default 0
+	depends on HTC_RAMDUMP_CODERAM_BACKUP
+
 config MSM_HVC
 	bool "MSM Hypervisor Call Support"
 	help
