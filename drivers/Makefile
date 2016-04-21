@@ -187,4 +187,5 @@ obj-$(CONFIG_ESOC)              += esoc/
 obj-$(CONFIG_TEE)		+= tee/
 
 # HTC debug
-obj-$(CONFIG_HTC_DEBUG)                += htc_debug/
+obj-$(CONFIG_HTC_DEBUG)			+= htc_debug/
+obj-$(CONFIG_HTC_DEBUG_FOOTPRINT)	+= htc_mnemosyne/
