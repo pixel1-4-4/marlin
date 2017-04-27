@@ -114,4 +114,6 @@ source "drivers/staging/qcacld-2.0/Kconfig"
 
 source "drivers/staging/typec/Kconfig"
 
+source "drivers/staging/typec/Kconfig"
+
 endif # STAGING

@@ -4,11 +4,8 @@
 obj-$(CONFIG_STAGING)		+= staging.o
 
 obj-y				+= media/
-<<<<<<< HEAD
 obj-$(CONFIG_SLICOSS)		+= slicoss/
-=======
 obj-y				+= typec/
->>>>>>> f0690a25a140... staging: typec: USB Type-C Port Manager (tcpm)
 obj-$(CONFIG_PRISM2_USB)	+= wlan-ng/
 obj-$(CONFIG_COMEDI)		+= comedi/
 obj-$(CONFIG_FB_OLPC_DCON)	+= olpc_dcon/
