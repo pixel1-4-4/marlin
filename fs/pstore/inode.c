@@ -37,6 +37,7 @@
 #include <linux/spinlock.h>
 #include <linux/uaccess.h>
 #include <linux/htc_debug_tools.h>
+#include <linux/syslog.h>
 
 #include "internal.h"
 
