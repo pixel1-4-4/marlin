@@ -132,7 +132,7 @@ err0:
 
 void register_rpm_dump(void)
 {
-#if !defined(CONFIG_HTC_RAMDUMP_CODERAM_BACKUP)
+#ifndef CONFIG_HTC_RAMDUMP_CODERAM_BACKUP
 	static void *dump_addr;
 #endif //CONFIG_HTC_RAMDUMP_CODERAM_BACKUP
 	int ret;
@@ -141,14 +141,17 @@ void register_rpm_dump(void)
 
 	if (MSM_DUMP_MAJOR(msm_dump_table_version()) > 1) {
 		dump_data = kzalloc(sizeof(struct msm_dump_data), GFP_KERNEL);
-		if (!dump_data)
+		if (!dump_data) {
+			pr_err("rpm dump data structure allocation failed\n");
 			return;
 		}
 
-#if !defined(CONFIG_HTC_RAMDUMP_CODERAM_BACKUP)
+#ifndef CONFIG_HTC_RAMDUMP_CODERAM_BACKUP
 		dump_addr = kzalloc(RPM_DUMP_DATA_LEN, GFP_KERNEL);
-		if (!dump_addr)
+		if (!dump_addr) {
+			pr_err("rpm dump buffer space allocation failed\n");
 			goto err0;
+		}
 
 		strlcpy(dump_data->name, "KRPM", sizeof(dump_data->name));
 		dump_data->addr = virt_to_phys(dump_addr);
@@ -165,7 +168,7 @@ void register_rpm_dump(void)
 		}
 		return;
 err1:
-#if !defined(CONFIG_HTC_RAMDUMP_CODERAM_BACKUP)
+#ifndef CONFIG_HTC_RAMDUMP_CODERAM_BACKUP
 		kfree(dump_addr);
 err0:
 #endif //CONFIG_HTC_RAMDUMP_CODERAM_BACKUP
