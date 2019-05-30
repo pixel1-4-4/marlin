@@ -16,7 +16,7 @@
 
 include $(srctree)/arch/arm64/boot/dts/htc/Makefile
 
-targets := Image Image.gz Image.lz4
+targets := Image Image-dtb Image.gz Image.gz-dtb Image.lz4 Image.lz4-dtb
 
 DTB_NAMES := $(subst $\",,$(CONFIG_BUILD_ARM64_APPENDED_DTB_IMAGE_NAMES))
 ifneq ($(DTB_NAMES),)
